@@ -12,10 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ChangeNotifierProvider disponibiliza o FavoritesProvider
+    // para toda a árvore de widgets (gerenciamento de estado)
     return ChangeNotifierProvider(
       create: (context) => FavoritesProvider(),
       child: MaterialApp(
         title: 'Pokédex Explorer',
+        // Define esquema de cores baseado em um seed vermelho
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.red,
@@ -27,6 +30,7 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.white,
             elevation: 0,
           ),
+          // Estilo padrão para todos os Botões
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red[600],
@@ -35,6 +39,8 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        // Define a tela inicial (HomeScreen).
+        // → IMPORTANTE: se esse arquivo não existir, o app quebra. (ps. Experiência própria)
         home: const HomeScreen(),
         debugShowCheckedModeBanner: false,
       ),
